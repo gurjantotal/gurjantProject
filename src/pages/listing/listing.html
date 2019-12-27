@@ -1,0 +1,22 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Listing</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item *ngIf="!userInfo.length"> 
+    No User Found
+  </ion-item>
+  <ion-list *ngIf="userInfo.length">
+    <ion-item *ngFor="let item of userInfo">
+      <ion-avatar item-start>
+        <img [src]="item?.imageURI">
+      </ion-avatar>
+      <h2>{{item.username}}</h2>
+      <ion-icon name="trash" color="danger" (click)="removeItem(item)" item-end></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
